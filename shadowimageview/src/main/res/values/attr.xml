@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ShadowImageView">
+        <attr name="shadowRound" format="dimension" />
+        <attr name="shadowSrc" format="reference" />
+    </declare-styleable>
+
+</resources>
