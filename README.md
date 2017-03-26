@@ -9,6 +9,19 @@
 ## Demo 下载APK体验
 [Download Demo](https://github.com/yingLanNull/ShadowImageView/blob/master/show/app-debug.apk)
 
+## Usage 使用方法
+
+### In layout
+
+```
+	    <com.yinglan.shadowimageview.ShadowImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:shadowRound="20dp"
+                app:shadowSrc="@mipmap/lotus" />
+
+```
+
 ## FAQ
 
 看了[PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow)的效果，抽时间做了简单实现没有上传Jcenter库，可能会有潜在的问题做学习交流使用，期待大家有更好的实现方式。
