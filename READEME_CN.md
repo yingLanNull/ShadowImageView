@@ -2,8 +2,8 @@
 ## 摘要
     更加细腻的阴影效果，在一些提高用户体验的特殊场景使用
 
-##英文文档
-[View English Documents](README.md)
+## 英文文档
+[View English Documents](https://github.com/yingLanNull/ShadowImageView)
 
 ## 显示效果
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)

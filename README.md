@@ -2,8 +2,8 @@
 ## Abstract
     More exquisite shadow effect, used in some special scene to enhance the user experience.
 
-##Chinese Documents
-[查看中文文档](README_CN.md)
+## Chinese Documents
+[查看中文文档](https://github.com/yingLanNull/ShadowImageView/blob/master/READEME_CN.md)
 
 ## Picture
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)
