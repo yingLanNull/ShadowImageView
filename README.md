@@ -27,7 +27,7 @@
 
 ## FAQ
 
-See [PPMusicImageShadow] (https://github.com/PierrePerrin/PPMusicImageShadow), the effect of time has made the simple implementation no upload Jcenter library, there may be a potential problem for study and communication, looking forward to you have a better way of implementation.
+See [PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow), the effect of time has made the simple implementation no upload Jcenter library, there may be a potential problem for study and communication, looking forward to you have a better way of implementation.
 
 
 ## License
