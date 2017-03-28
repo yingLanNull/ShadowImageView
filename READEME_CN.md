@@ -18,11 +18,17 @@
 
 ```
 	    <com.yinglan.shadowimageview.ShadowImageView
+	            android:id="@+id/shadow"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 app:shadowRound="20dp"
                 app:shadowSrc="@mipmap/lotus" />
 
+```
+
+### 设置图片
+```
+    shadow.setImageResource(resID); 
 ```
 
 ## 注意

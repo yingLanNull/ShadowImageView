@@ -60,6 +60,10 @@ public class ShadowImageView extends RelativeLayout {
         addView(roundImageView);
     }
 
+    public void setImageResource(int resId){
+        ((RoundImageView)getChildAt(0)).setImageResource(resId);
+        invalidate();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
