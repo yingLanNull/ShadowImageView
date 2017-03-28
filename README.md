@@ -9,6 +9,9 @@
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)
 ![2](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow2.png)
 
+## GIF
+![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow.gif)
+
 ## Demo
 [Download App](https://github.com/yingLanNull/ShadowImageView/blob/master/show/app-debug.apk)
 
