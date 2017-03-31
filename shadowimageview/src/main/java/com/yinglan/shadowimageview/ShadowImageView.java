@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
@@ -60,8 +59,8 @@ public class ShadowImageView extends RelativeLayout {
         addView(roundImageView);
     }
 
-    public void setImageResource(int resId){
-        ((RoundImageView)getChildAt(0)).setImageResource(resId);
+    public void setImageResource(int resId) {
+        ((RoundImageView) getChildAt(0)).setImageResource(resId);
         invalidate();
     }
 
@@ -101,13 +100,10 @@ public class ShadowImageView extends RelativeLayout {
             Bitmap bitmap;
             int rgb;
 
-            if (((ImageView) view).getDrawable() instanceof ClipDrawable) {
-                rgb = Color.parseColor("#8D8D8D");
-                shadowPaint.setShadowLayer(radius, 0, shadowColor, getDarkerColor(rgb));
-            } else if (((ImageView) view).getDrawable() instanceof ColorDrawable) {
+            if (((ImageView) view).getDrawable() instanceof ColorDrawable) {
                 rgb = ((ColorDrawable) ((ImageView) view).getDrawable()).getColor();
                 shadowPaint.setShadowLayer(40, 0, 28, getDarkerColor(rgb));
-            } else {
+            } else if (((ImageView) view).getDrawable() instanceof BitmapDrawable) {
                 bitmap = ((BitmapDrawable) ((ImageView) view).getDrawable()).getBitmap();
                 Palette.Swatch mSwatch = Palette.from(bitmap).generate().getDominantSwatch();
 
@@ -125,6 +121,9 @@ public class ShadowImageView extends RelativeLayout {
                     rgb = Palette.from(bitmapT).generate().getDominantSwatch().getRgb();
                     shadowPaint.setShadowLayer(radius, 0, shadowColor, rgb);
                 }
+            } else {
+                rgb = Color.parseColor("#8D8D8D");
+                shadowPaint.setShadowLayer(radius, 0, shadowColor, getDarkerColor(rgb));
             }
 
             RectF rectF = new RectF(view.getX() + (view.getWidth() / 20), view.getY(), view.getX() + view.getWidth() - (view.getWidth() / 20), view.getY() + view.getHeight() - ((view.getHeight() / 40)));
