@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -61,6 +62,11 @@ public class ShadowImageView extends RelativeLayout {
 
     public void setImageResource(int resId) {
         ((RoundImageView) getChildAt(0)).setImageResource(resId);
+        invalidate();
+    }
+
+    public void setImageDrawable(Drawable drawable) {
+        ((RoundImageView) getChildAt(0)).setImageDrawable(drawable);
         invalidate();
     }
 

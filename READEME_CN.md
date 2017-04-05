@@ -31,7 +31,8 @@
 
 ### 设置图片
 ```
-    shadow.setImageResource(resID); 
+    shadow.setImageResource(resID);
+    shadow.setImageDrawable(drawable); 
 ```
 
 ## 注意

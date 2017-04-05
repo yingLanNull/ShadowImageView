@@ -32,6 +32,7 @@
 ### Set Picture
 ```
     shadow.setImageResource(resID); 
+    shadow.setImageDrawable(drawable); 
 ```
 
 ## FAQ

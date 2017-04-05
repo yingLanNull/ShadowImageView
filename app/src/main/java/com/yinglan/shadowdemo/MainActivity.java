@@ -1,5 +1,7 @@
 package com.yinglan.shadowdemo;
 
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
                         resId = 1;
                         break;
                 }
-                shadow.setImageResource(res);
+                if (resId == 1 || resId == 3)
+                    shadow.setImageResource(res);
+                else
+                    shadow.setImageDrawable(getResources().getDrawable(res));
             }
         });
     }
