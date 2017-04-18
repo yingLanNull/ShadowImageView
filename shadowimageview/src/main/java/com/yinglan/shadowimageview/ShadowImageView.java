@@ -67,13 +67,14 @@ public class ShadowImageView extends RelativeLayout {
             @Override
             public void onGlobalLayout() {
                 int N = getChildCount();
-
                 for (int i = 0; i < N; i++) {
                     View view = getChildAt(i);
                     if (i != 0) {
                         removeView(view);
+                        getChildCount();
                         continue;
                     }
+                    N = getChildCount();
                 }
 
                 ((RoundImageView) getChildAt(0)).setRound(shadowRound);
@@ -85,13 +86,11 @@ public class ShadowImageView extends RelativeLayout {
     public void setImageResource(int resId) {
         ((RoundImageView) getChildAt(0)).setImageResource(resId);
         mInvalidat = true;
-        invalidate();
     }
 
     public void setImageDrawable(Drawable drawable) {
         ((RoundImageView) getChildAt(0)).setImageDrawable(drawable);
         mInvalidat = true;
-        invalidate();
     }
 
     @Override
