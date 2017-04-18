@@ -14,12 +14,15 @@ import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class ShadowImageView extends RelativeLayout {
 
     private int shadowRound = 0;
+
+    private boolean mInvalidat;
 
     public ShadowImageView(Context context) {
         this(context, null);
@@ -37,6 +40,7 @@ public class ShadowImageView extends RelativeLayout {
     private void initView(Context context, AttributeSet attrs) {
         setPadding(80, 40, 80, 120);
         setGravity(Gravity.CENTER);
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
 
         int imageresource;
         if (attrs != null) {
@@ -58,45 +62,49 @@ public class ShadowImageView extends RelativeLayout {
         }
 
         addView(roundImageView);
+
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int N = getChildCount();
+
+                for (int i = 0; i < N; i++) {
+                    View view = getChildAt(i);
+                    if (i != 0) {
+                        removeView(view);
+                        continue;
+                    }
+                }
+
+                ((RoundImageView) getChildAt(0)).setRound(shadowRound);
+                mInvalidat = true;
+            }
+        });
     }
 
     public void setImageResource(int resId) {
         ((RoundImageView) getChildAt(0)).setImageResource(resId);
+        mInvalidat = true;
         invalidate();
     }
 
     public void setImageDrawable(Drawable drawable) {
         ((RoundImageView) getChildAt(0)).setImageDrawable(drawable);
+        mInvalidat = true;
         invalidate();
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
 
-        int N = getChildCount();
+        if (mInvalidat) {
+            mInvalidat = false;
 
-        for (int i = 0; i < N; i++) {
-            View view = getChildAt(i);
-            if (i != 0) {
-                removeView(view);
-                continue;
-            }
-            if (view.getVisibility() == GONE || view.getVisibility() == INVISIBLE ||
-                    view.getAlpha() == 0) {
-                continue;
-            }
-
-            canvas.save();
+            View view = getChildAt(0);
 
             Paint shadowPaint = new Paint();
 
             shadowPaint.setColor(Color.WHITE);
-            setLayerType(LAYER_TYPE_SOFTWARE, null);
             shadowPaint.setStyle(Paint.Style.FILL);
             shadowPaint.setAntiAlias(true);
 
@@ -135,9 +143,8 @@ public class ShadowImageView extends RelativeLayout {
             RectF rectF = new RectF(view.getX() + (view.getWidth() / 20), view.getY(), view.getX() + view.getWidth() - (view.getWidth() / 20), view.getY() + view.getHeight() - ((view.getHeight() / 40)));
 
             canvas.drawRoundRect(rectF, shadowRound, shadowRound, shadowPaint);
-            canvas.restore();
 
-            ((RoundImageView) view).setRound(shadowRound);
+            canvas.save();
         }
         super.dispatchDraw(canvas);
     }
