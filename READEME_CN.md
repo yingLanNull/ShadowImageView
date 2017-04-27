@@ -17,6 +17,13 @@
 
 ## 使用方法
 
+#### Gradle 配置
+```
+dependencies {
+    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.2'
+}
+```
+
 ### 布局
 
 ```
@@ -33,6 +40,11 @@
 ```
     shadow.setImageResource(resID);
     shadow.setImageDrawable(drawable); 
+```
+
+### 设置图片半径
+```
+    shadow.setImageRadius(radius);
 ```
 
 ## 注意

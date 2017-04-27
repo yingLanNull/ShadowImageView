@@ -4,14 +4,18 @@ import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSeekBar;
 import android.view.View;
+import android.widget.SeekBar;
 
 import com.yinglan.shadowimageview.ShadowImageView;
 
 public class MainActivity extends AppCompatActivity {
 
     private com.yinglan.shadowimageview.ShadowImageView shadow;
+    private AppCompatSeekBar seekBar;
     private int resId = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         this.shadow = (ShadowImageView) findViewById(R.id.shadow);
+        this.seekBar = (AppCompatSeekBar) findViewById(R.id.seekbar);
 
         shadow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
                     shadow.setImageResource(res);
                 else
                     shadow.setImageDrawable(getResources().getDrawable(res));
+            }
+        });
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                shadow.setImageRadius(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }

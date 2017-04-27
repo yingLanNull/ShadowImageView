@@ -85,11 +85,28 @@ public class ShadowImageView extends RelativeLayout {
 
     public void setImageResource(int resId) {
         ((RoundImageView) getChildAt(0)).setImageResource(resId);
+        invalidate();
         mInvalidat = true;
     }
 
     public void setImageDrawable(Drawable drawable) {
         ((RoundImageView) getChildAt(0)).setImageDrawable(drawable);
+        invalidate();
+        mInvalidat = true;
+    }
+
+    public void setImageRadius(int radius) {
+        if (radius > getChildAt(0).getWidth() / 2 || radius > getChildAt(0).getHeight() / 2) {
+            if (getChildAt(0).getWidth() > getChildAt(0).getHeight()) {
+                radius = getChildAt(0).getHeight() / 2;
+            } else {
+                radius = getChildAt(0).getWidth() / 2;
+            }
+        }
+
+        this.shadowRound = radius;
+        ((RoundImageView) getChildAt(0)).setRound(shadowRound);
+        invalidate();
         mInvalidat = true;
     }
 
@@ -97,6 +114,7 @@ public class ShadowImageView extends RelativeLayout {
     protected void dispatchDraw(Canvas canvas) {
 
         if (mInvalidat) {
+
             mInvalidat = false;
 
             View view = getChildAt(0);

@@ -17,6 +17,13 @@
 
 ## Usage
 
+#### Gradle
+```
+dependencies {
+    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.2'
+}
+```
+
 ### In layout
 
 ```
@@ -33,6 +40,11 @@
 ```
     shadow.setImageResource(resID); 
     shadow.setImageDrawable(drawable); 
+```
+
+### Set the picture radius
+```
+    shadow.setImageRadius(radius);
 ```
 
 ## FAQ

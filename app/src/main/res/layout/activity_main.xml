@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.yinglan.shadowdemo.MainActivity">
+    android:orientation="vertical">
 
     <com.yinglan.shadowimageview.ShadowImageView
         android:id="@+id/shadow"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        app:shadowRound="20dp"
+        app:shadowRound="0dp"
         app:shadowSrc="@mipmap/lotus" />
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="500" />
+
+</LinearLayout>
