@@ -50,7 +50,7 @@ dependencies {
 
 ## 注意
 
-看了[PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow)的效果，抽时间做了简单实现没有上传Jcenter库，可能会有潜在的问题做学习交流使用，期待大家有更好的实现方式。
+看了[PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow)的效果，抽时间做了简单实现，可能会有潜在的问题做学习交流使用，期待大家有更好的实现方式。
 
 
 ## 开源协议
