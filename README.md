@@ -20,7 +20,7 @@
 #### Gradle
 ```
 dependencies {
-    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.2'
+    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.3'
 }
 ```
 
@@ -40,6 +40,7 @@ dependencies {
 ```
     shadow.setImageResource(resID); 
     shadow.setImageDrawable(drawable); 
+    shadow.setImageBitmap(bitmap);
 ```
 
 ### Set the picture radius
