@@ -19,4 +19,12 @@
         android:layout_height="wrap_content"
         android:max="500" />
 
+    <com.yinglan.shadowimageview.ShadowImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/shadowd"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        app:shadowRound="5dp"
+        app:shadowSrc="@mipmap/lotus" />
+
 </LinearLayout>

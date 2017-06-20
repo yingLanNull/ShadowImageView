@@ -1,13 +1,20 @@
 package com.yinglan.shadowdemo;
 
-import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinglan.shadowimageview.ShadowImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,6 +75,45 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+
+        loadNetImage();
+    }
+
+    private void loadNetImage() {
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration
+                .Builder(this)
+                .threadPriority(Thread.NORM_PRIORITY - 2)
+                .denyCacheImageMultipleSizesInMemory()
+                .memoryCacheSize(2 * 1024 * 1024)
+                .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
+                .imageDownloader(new BaseImageDownloader(this, 5 * 1000, 30 * 1000)) // connectTimeout (5 s), readTimeout (30 s)超时时间
+                .writeDebugLogs() // Remove for release app
+                .build();
+
+        ImageLoader.getInstance().init(config);
+
+        //此处加载的是本地的图片，网络图片用法一至
+        ImageLoader.getInstance().displayImage("drawable://" + R.mipmap.lotus, new ImageView(this), new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                ((ShadowImageView)findViewById(R.id.shadowd)).setImageBitmap(loadedImage);
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
             }
         });
     }
