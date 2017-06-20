@@ -120,6 +120,12 @@ public class ShadowImageView extends RelativeLayout {
         mInvalidat = true;
     }
 
+    public void setImageBitmap(Bitmap bitmap) {
+        ((RoundImageView) getChildAt(0)).setImageBitmap(bitmap);
+        invalidate();
+        mInvalidat = true;
+    }
+
     public void setImageRadius(int radius) {
         if (radius > getChildAt(0).getWidth() / 2 || radius > getChildAt(0).getHeight() / 2) {
             if (getChildAt(0).getWidth() > getChildAt(0).getHeight()) {

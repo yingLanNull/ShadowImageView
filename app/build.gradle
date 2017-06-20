@@ -26,6 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     testCompile 'junit:junit:4.12'
     compile project(':shadowimageview')
 }
