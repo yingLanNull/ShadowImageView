@@ -11,7 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:shadowRound="0dp"
-        app:shadowSrc="@mipmap/lotus" />
+        app:shadowSrc="@mipmap/android0" />
 
     <android.support.v7.widget.AppCompatSeekBar
         android:id="@+id/seekbar"
