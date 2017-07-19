@@ -49,10 +49,7 @@ dependencies {
 ```
 
 ## FAQ
-
-```
- See [PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow),  do a simple implementation, there may be a potential problem and use learning exchanges, looking forward to you have a better way of implementation.
-```
+ See[PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow),  do a simple implementation, there may be a potential problem and use learning exchanges, looking forward to you have a better way of implementation.
 
 ## License
 The work done has been licensed under Apache License 2.0. The license file can be found
