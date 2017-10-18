@@ -8,6 +8,7 @@
 ## 显示效果
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)
 ![2](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow2.png)
+![3](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadowcolor.png)
 
 ## 动图
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow.gif)
@@ -20,7 +21,7 @@
 #### Gradle 配置
 ```
 dependencies {
-    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.3'
+    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
 }
 ```
 
@@ -32,7 +33,8 @@ dependencies {
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 app:shadowRound="20dp"
-                app:shadowSrc="@mipmap/lotus" />
+                app:shadowSrc="@mipmap/lotus"
+                app:shadowColor="@color/colorAccent"/>
 
 ```
 
@@ -47,7 +49,10 @@ dependencies {
 ```
     shadow.setImageRadius(radius);
 ```
-
+### 设置图片阴影颜色
+```
+    shadow.setImageShadowColor(color);
+```
 ## 注意
 
 阴影效果的简单实现，可能会有潜在的问题做学习交流使用，期待大家有更好的实现方式。目前暂不支持直接使用加载网络图片，如需要展示网络图片可变通使用网络图片加载库，demo中有使用方法。

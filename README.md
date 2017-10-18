@@ -8,6 +8,7 @@
 ## Picture
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)
 ![2](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow2.png)
+![3](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadowcolor.png)
 
 ## GIF
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow.gif)
@@ -20,7 +21,7 @@
 #### Gradle
 ```
 dependencies {
-    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.3'
+    compile 'com.yinglan.shadowimageview:shadowimageview:1.0.4'
 }
 ```
 
@@ -32,7 +33,8 @@ dependencies {
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 app:shadowRound="20dp"
-                app:shadowSrc="@mipmap/lotus" />
+                app:shadowSrc="@mipmap/lotus"
+                app:shadowColor="@color/colorAccent"/>
 
 ```
 
@@ -46,6 +48,10 @@ dependencies {
 ### Set the picture radius
 ```
     shadow.setImageRadius(radius);
+```
+### Set the shadow color of the image
+```
+    shadow.setImageShadowColor(color);
 ```
 
 ## FAQ

@@ -25,6 +25,7 @@
         android:layout_width="300dp"
         android:layout_height="150dp"
         app:shadowRound="5dp"
-        app:shadowSrc="@mipmap/lotus" />
+        app:shadowSrc="@mipmap/lotus"
+        app:shadowColor="@color/colorPrimary"/>
 
 </LinearLayout>
