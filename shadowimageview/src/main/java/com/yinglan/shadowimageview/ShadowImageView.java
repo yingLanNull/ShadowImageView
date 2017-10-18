@@ -25,6 +25,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -32,6 +33,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 /**
@@ -46,7 +48,7 @@ import android.widget.RelativeLayout;
 public class ShadowImageView extends RelativeLayout {
 
     private int shadowRound = 0;
-
+    private int shadowColor = -147483648;
     private boolean mInvalidat;
 
     public ShadowImageView(Context context) {
@@ -67,11 +69,16 @@ public class ShadowImageView extends RelativeLayout {
         setGravity(Gravity.CENTER);
         setLayerType(LAYER_TYPE_SOFTWARE, null);
 
-        int imageresource;
+        int imageresource = -1;
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ShadowImageView);
-            imageresource = a.getResourceId(R.styleable.ShadowImageView_shadowSrc, -1);
+            if (a.hasValue(R.styleable.ShadowImageView_shadowSrc)) {
+                imageresource = a.getResourceId(R.styleable.ShadowImageView_shadowSrc, -1);
+            }
             shadowRound = a.getDimensionPixelSize(R.styleable.ShadowImageView_shadowRound, shadowRound);
+            if (a.hasValue(R.styleable.ShadowImageView_shadowColor)) {
+                shadowColor = a.getColor(R.styleable.ShadowImageView_shadowColor, Color.parseColor("#8D8D8D"));
+            }
         } else {
             float density = context.getResources().getDisplayMetrics().density;
             shadowRound = (int) (shadowRound * density);
@@ -84,6 +91,10 @@ public class ShadowImageView extends RelativeLayout {
             roundImageView.setImageResource(android.R.color.transparent);
         } else {
             roundImageView.setImageResource(imageresource);
+        }
+
+        if (this.shadowColor == Color.parseColor("#8D8D8D")) {
+            this.shadowColor = -147483648;
         }
 
         addView(roundImageView);
@@ -126,6 +137,10 @@ public class ShadowImageView extends RelativeLayout {
         mInvalidat = true;
     }
 
+    public void setImageShadowColor(@ColorInt int color) {
+        this.shadowColor = color;
+    }
+
     public void setImageRadius(int radius) {
         if (radius > getChildAt(0).getWidth() / 2 || radius > getChildAt(0).getHeight() / 2) {
             if (getChildAt(0).getWidth() > getChildAt(0).getHeight()) {
@@ -157,7 +172,7 @@ public class ShadowImageView extends RelativeLayout {
             shadowPaint.setAntiAlias(true);
 
             int radius = view.getHeight() / 12 > 40 ? 40 : view.getHeight() / 12;
-            int shadowColor = view.getHeight() / 16 > 28 ? 28 : view.getHeight() / 16;
+            int shadowDimen = view.getHeight() / 16 > 28 ? 28 : view.getHeight() / 16;
 
             Bitmap bitmap;
             int rgb;
@@ -175,17 +190,21 @@ public class ShadowImageView extends RelativeLayout {
                     rgb = Color.parseColor("#8D8D8D");
                 }
 
-                shadowPaint.setShadowLayer(radius, 0, shadowColor, getDarkerColor(rgb));
+                shadowPaint.setShadowLayer(radius, 0, shadowDimen, getDarkerColor(rgb));
                 Bitmap bitmapT = Bitmap.createBitmap(bitmap, 0, bitmap.getHeight() / 4 * 3,
                         bitmap.getWidth(), bitmap.getHeight() / 4);
 
                 if (null != Palette.from(bitmapT).generate().getDominantSwatch()) {
                     rgb = Palette.from(bitmapT).generate().getDominantSwatch().getRgb();
-                    shadowPaint.setShadowLayer(radius, 0, shadowColor, rgb);
+                    shadowPaint.setShadowLayer(radius, 0, shadowDimen, rgb);
                 }
             } else {
                 rgb = Color.parseColor("#8D8D8D");
-                shadowPaint.setShadowLayer(radius, 0, shadowColor, getDarkerColor(rgb));
+                shadowPaint.setShadowLayer(radius, 0, shadowDimen, getDarkerColor(rgb));
+            }
+
+            if (this.shadowColor != -147483648) {
+                shadowPaint.setShadowLayer(radius, 0, shadowDimen, this.shadowColor);
             }
 
             RectF rectF = new RectF(view.getX() + (view.getWidth() / 20), view.getY(), view.getX() + view.getWidth() - (view.getWidth() / 20), view.getY() + view.getHeight() - ((view.getHeight() / 40)));
