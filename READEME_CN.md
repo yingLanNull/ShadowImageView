@@ -8,10 +8,12 @@
 ## 显示效果
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)
 ![2](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow2.png)
-![3](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadowcolor.png)
 
 ## 动图
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow.gif)
+
+## 新增显示效果
+![3](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadowcolor.png)
 
 ## 下载APK体验
 [点击下载](https://github.com/yingLanNull/ShadowImageView/blob/master/show/app-debug.apk)

@@ -8,10 +8,12 @@
 ## Picture
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow1.png)
 ![2](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow2.png)
-![3](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadowcolor.png)
 
 ## GIF
 ![1](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadow.gif)
+
+## Add Picture
+![3](https://github.com/yingLanNull/ShadowImageView/blob/master/show/shadowcolor.png)
 
 ## Demo
 [Download App](https://github.com/yingLanNull/ShadowImageView/blob/master/show/app-debug.apk)
