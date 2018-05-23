@@ -56,7 +56,7 @@ dependencies {
     shadow.setImageShadowColor(color);
 ```
 
-## FAQ
+## Notice
  See[PPMusicImageShadow](https://github.com/PierrePerrin/PPMusicImageShadow),  do a simple implementation, there may be a potential problem and use learning exchanges, looking forward to you have a better way of implementation.
 
 ## License
